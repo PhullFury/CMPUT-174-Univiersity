@@ -64,9 +64,18 @@ def get_episodes_of_season(season_id):
 
 def format_episode_name(episode):
     s_number = episode["season"]
-    e_number = episode["number"]
-    name = episode["name"]
-    rating = episode["rating"]["average"]
+    if (episode["number"] == None):
+        e_number = "?"
+    else:
+        e_number = episode["number"]
+    if (episode["name"] == None):
+        name = "?"
+    else:
+        name = episode["name"]
+    if (episode["rating"]["average"] == None):
+        rating = "?"
+    else:
+        rating = episode["rating"]["average"]
     return "S" + str(s_number) + "E" + str(e_number) + " " + name + " (rating: " + str(rating) + ")"
 
 
